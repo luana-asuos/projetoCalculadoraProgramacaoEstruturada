@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "custom_op.h"
 #include "bigint.h"
 

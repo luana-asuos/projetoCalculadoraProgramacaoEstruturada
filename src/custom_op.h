@@ -1,8 +1,8 @@
 #ifndef CUSTOM_OP_H
 #define CUSTOM_OP_H
 
-#include "bigint.h"
+#include "largeint.h"
 
-void bigint_gcd(const BigInt *a, const BigInt *b, BigInt *result);
+void li_gcd(const LargeInt *a, const LargeInt *b, LargeInt *result);
 
 #endif

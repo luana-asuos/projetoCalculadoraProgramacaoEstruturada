@@ -1,39 +1,19 @@
 #include "custom_op.h"
-#include "bigint.h"
+#include "largeint.h"
 
-// Máximo Divisor Comum (BigInt puro, sem conversão para int)
-void bigint_gcd(const BigInt *a, const BigInt *b, BigInt *result) {
-    BigInt A, B, T;
+void li_gcd(const LargeInt *a, const LargeInt *b, LargeInt *result) {
+    LargeInt A, B, R;
 
-    // Trabalhar com cópias
-    bigint_copy(&A, a);
-    bigint_copy(&B, b);
+    li_copy(&A, a);
+    li_copy(&B, b);
 
-    A.sign = 1;
-    B.sign = 1;
+    A.sign = B.sign = 1;
 
-    // Casos base
-    if (bigint_is_zero(&A)) {
-        bigint_copy(result, &B);
-        return;
-    }
-    if (bigint_is_zero(&B)) {
-        bigint_copy(result, &A);
-        return;
+    while (!li_is_zero(&B)) {
+        li_mod(&A, &B, &R);
+        li_copy(&A, &B);
+        li_copy(&B, &R);
     }
 
-    // Algoritmo de Euclides por subtrações
-    while (bigint_cmp(&A, &B) != 0) {
-        if (bigint_cmp(&A, &B) > 0) {
-            bigint_sub(&A, &B, &T); // A = A - B
-            bigint_copy(&A, &T);
-        } else {
-            bigint_sub(&B, &A, &T); // B = B - A
-            bigint_copy(&B, &T);
-        }
-    }
-
-    // Resultado final
-    bigint_copy(result, &A);
-    result->sign = 1;
+    li_copy(result, &A);
 }

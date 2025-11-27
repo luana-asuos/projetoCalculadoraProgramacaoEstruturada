@@ -1,9 +1,9 @@
 #ifndef IO_H
 #define IO_H
 
-#include "bigint.h"
+#include "largeint.h"
 
-int read_bigint(BigInt *n, int from_file, const char *filename);
-int write_bigint(const BigInt *n, int to_file, const char *filename);
+int read_largeint(LargeInt *n, int from_file, const char *filename);
+int write_largeint(const LargeInt *n, int to_file, const char *filename);
 
 #endif

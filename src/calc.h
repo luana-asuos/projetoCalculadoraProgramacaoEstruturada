@@ -1,7 +1,7 @@
 #ifndef CALC_H
 #define CALC_H
 
-#include "bigint.h"
+#include "largeint.h"
 
 typedef enum {
     OP_ADD,
@@ -13,6 +13,6 @@ typedef enum {
     OP_EXIT
 } Operation;
 
-void calc_execute(Operation op, const BigInt *a, const BigInt *b, BigInt *result);
+void calc_execute(Operation op, const LargeInt *a, const LargeInt *b, LargeInt *result);
 
 #endif

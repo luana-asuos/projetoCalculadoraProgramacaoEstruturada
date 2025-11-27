@@ -46,7 +46,12 @@ int main() {
             read_largeint(&b, 0, NULL);
         }
 
-        calc_execute(op - 1, &a, &b, &result);
+        int err = calc_execute(op - 1, &a, &b, &result);
+
+        if (err == -1) {
+            printf("Erro: divisao por zero\n");
+            continue;
+        }
 
         if (mode == 'f') {
             printf("Arquivo de saída: ");

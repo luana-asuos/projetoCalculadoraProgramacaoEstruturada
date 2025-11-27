@@ -13,6 +13,6 @@ typedef enum {
     OP_EXIT
 } Operation;
 
-void calc_execute(Operation op, const LargeInt *a, const LargeInt *b, LargeInt *result);
+int calc_execute(Operation op, const LargeInt *a, const LargeInt *b, LargeInt *result);
 
 #endif

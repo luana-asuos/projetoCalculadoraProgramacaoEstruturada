@@ -20,8 +20,8 @@ void li_add(const LargeInt *a, const LargeInt *b, LargeInt *result);
 void li_sub(const LargeInt *a, const LargeInt *b, LargeInt *result);
 void li_mul(const LargeInt *a, const LargeInt *b, LargeInt *result);
 
-void li_divmod(const LargeInt *a, const LargeInt *b, LargeInt *q, LargeInt *r);
-void li_div(const LargeInt *a, const LargeInt *b, LargeInt *q);
-void li_mod(const LargeInt *a, const LargeInt *b, LargeInt *r);
+int li_divmod(const LargeInt *a, const LargeInt *b, LargeInt *q, LargeInt *r);
+int li_div(const LargeInt *a, const LargeInt *b, LargeInt *q);
+int li_mod(const LargeInt *a, const LargeInt *b, LargeInt *r);
 
 #endif
